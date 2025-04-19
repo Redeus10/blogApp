@@ -1,0 +1,455 @@
+body {
+    margin: 0% !important;
+    background-color: #f9f9f9;
+    color: #464646;
+    background-color: #f7f7f7;
+}
+
+@font-face {
+    font-family: poppins;
+    src: url(Poppins-Light.ttf);
+}
+
+@font-face {
+    font-family: Petch;
+    src: url(ChakraPetch-Bold.ttf);
+}
+
+@font-face {
+    font-family: bebas;
+    src: url(BebasNeue-Regular.ttf);
+}
+
+header {
+    height: 31vh;
+    border-block-end: 1px solid rgb(206, 203, 203);
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    position: relative;
+}
+.flash{
+    width: 100%;
+    height: 30%;
+    background-color: greenyellow;
+    position: absolute;
+    top: 0;
+    
+}
+#menu_drop {
+    background-color: black;
+    border-radius: 0;
+    height: 50px;
+    width: 50px;
+    top: 25%;
+    z-index: 3;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+
+#b_block_menu {
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    background-image: url("/menu.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right top;
+    display: flex;
+    align-items: center;
+}
+
+#block_menu {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: none;
+    transition: clip-path 1s ease;
+}
+
+#b_header {
+    width: 95%;
+    display: flex;
+    height: 80vh;
+}
+
+#b_links {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#pb_links {
+    width: 100%;
+    height: 75%;
+}
+
+#pb_links img {
+    display: block;
+    margin: auto;
+}
+
+.b_links {
+    width: 50%;
+    text-align: center;
+}
+
+.b_links a {
+    text-decoration: none;
+    font-family: bebas;
+    color: white;
+    font-weight: 100;
+    font-size: 2rem;
+    border-bottom: 1px solid hsl(0, 0%, 80%);
+}
+
+#title h2 {
+    font-family: Petch;
+    font-size: 3rem;
+    font-weight: 900;
+    transition: 0.3s ease, color 0.3s ease;
+}
+
+#title {
+    width: 40%;
+    height: 80%;
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+#title h2:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+#title img {
+    flex-shrink: 0;
+    height: 123px;
+    width: 180px;
+}
+
+#links {
+    list-style: none;
+    display: flex;
+    margin: auto;
+    width: 70%;
+    justify-content: space-evenly;
+}
+
+#links a {
+    text-decoration: none;
+    font-family: poppins;
+    color: black;
+    font-weight: bold;
+    padding: 8px 12px;
+    transition: 0.3s ease, color 0.3s ease;
+    display: block;
+}
+
+#links a:hover {
+    color: rgb(141, 141, 141);
+}
+
+.post {
+    width: 50%;
+    margin: auto;
+    margin-top: 2rem;
+    font-family: poppins;
+    padding: 20px 20px 20px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .04);
+    background-color: #FFF;
+    border-radius: 3px 3px 0 0;
+    border: 1px solid rgba(0, 0, 0, .09);
+}
+
+.post p {
+    font-size: 0.9rem;
+}
+
+.post h2 {
+    font-size: 1.6rem;
+    color: #1f2937;
+}
+
+
+
+footer {
+    height: 30vh;
+    margin-top: 5rem;
+    font-family: poppins;
+    border-top: 1px solid rgb(206, 203, 203);
+    margin-right: 35px;
+    margin-left: 35px;
+}
+
+#fPic {
+    width: 75px;
+    
+}
+
+#logo {
+    min-width: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+#logo p {
+    font-weight: 600;
+}
+
+#footerBlock {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#fLinks {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    width: 35%;
+    justify-content: space-between;
+}
+
+#fLinks a {
+    text-decoration: none;
+    color: #333;
+}
+
+#copyri {
+    margin-top: 23px;
+    color: #777;
+    font-size: 0.8rem;
+}
+
+.container {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+    font-family: poppins;
+}
+.container img{
+    margin-top: 30px;
+}
+.container h1{
+    margin-bottom: 50px;
+    display: block;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 70px;
+}
+
+.col {
+    width: 100%;
+    max-width: 300px;
+}
+
+.card {
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.form-group {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+}
+
+input {
+    width: 90%;
+    padding: 13px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: poppins;
+}
+
+.btn {
+    background: black;
+    color: white;
+    padding: 14px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: poppins;
+}
+
+.btn:hover {
+    background-color: #ffffff;
+    border: 1px solid black;
+    color: black;
+}
+
+.google-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 10px;
+    background: white;
+    border: 1px solid gray;
+    border-radius: 5px;
+    color: black;
+    gap: 9px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.google-btn img {
+    width: 20px;
+    margin-right: 10px;
+}
+
+@media (max-width: 760px) {
+    .post {
+        width: 80%;
+    }
+    #links {
+        margin: auto;
+        width: 80%;
+    }
+    #links li a {
+        font-size: 0.7rem;
+    }
+    header {
+        height: 30vh;
+    }
+    #title img {
+        width: 140px;
+        height: 90px;
+    }
+    #title {
+        gap: 10px;
+    }
+    #title h2 {
+        font-size: 2rem;
+    }
+   
+
+}
+
+@media (max-width: 710px) {
+    .col {
+        margin: auto;
+    }
+}
+
+#warning {
+    color: red;
+    font-size: 0.8rem;
+}
+
+#flyCat {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 892px) {
+    #footerBlock {
+        flex-direction: column;
+        align-items: center;
+    }
+    #fLinks {
+        width: 300px;
+    }
+    #fLinks a {
+        font-size: 0.8rem;
+    }
+    #logo {
+        width: 150px;
+    }
+}
+
+@media (max-width: 500px) {
+    #links {
+        display: none;
+    }
+    header {
+        height: 15vh;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    #title {
+        margin: 0;
+        width: 250px;
+        height: 80px;
+    }
+    #title img {
+        width: 110px;
+        height: 70px;
+    }
+    #title h2 {
+        font-size: 1.6rem;
+    }
+    #menu_drop {
+        margin-right: 10px;
+        display: flex;
+    }
+}
+
+@media (max-width: 320px) {
+    #fLinks a {
+        font-size: 0.7rem;
+    }
+    #fLinks {
+        width: 230px;
+    }
+    #copyri {
+        font-size: 0.6rem;
+    }
+    #title {
+        width: 200px;
+    }
+    #title h2 {
+        font-size: 1.2rem;
+    }
+    #menu_drop {
+        height: 40px;
+        width: 40px;
+    }
+    #imgBtn {
+        width: 20px;
+    }
+    #b_links a{
+        font-size: 1.5rem;
+    }
+    
+}
+@media (max-width:420px){
+    .post h2{
+        font-size: 1.2rem;
+    }
+    .post p {
+        font-size: 0.7rem;
+    }
+}

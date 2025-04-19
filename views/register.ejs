@@ -1,0 +1,41 @@
+<%- include("partials/header") %>
+<div class="container">
+    <img src="/registerImoji.png" alt="" width="50px">
+    <h1>Register</h1>
+
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/register" method="POST">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" name="username" placeholder="e.g. Oleg123" maxlength="8" minlength="4" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" id="password"  placeholder="••••••••" required>
+                            <p id="warning"></p>
+                        </div>
+                        <button type="submit" class="btn">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <a class="google-btn" href="/auth/google">
+                        <i class="fab fa-google"></i> Sign In with Google
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include("partials/footer") %>

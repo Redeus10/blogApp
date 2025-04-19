@@ -1,0 +1,12 @@
+<%- include("partials/header") %>
+    <div  class="modal-edit">
+        <div class="modal-content-edit">
+            <h2>Edit Your Post:</h2>
+            <form id="postForm" action="/edit/<%= postE.id_post%>" method="post">
+                <input id="text" type="text"  name="title" value="<%= postE.title %>" required>
+                <textarea id="textareaE"  name="content" required><%= postE.content %></textarea>
+                <button type="submit" >Submit</button>
+            </form>
+        </div>
+    </div>
+<%- include("partials/footer") %>

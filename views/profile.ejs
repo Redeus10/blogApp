@@ -1,0 +1,62 @@
+<%- include("partials/header") %>
+<div id="header">
+    <div id="center">
+        <img src="/catP.png" alt="" width="60px">
+    <h1>Profile</h1>
+    </div>
+    
+</div>
+<div id="greeting">
+    <h2>Hey <%= username %></h2>
+    
+    <a href="/logout" id="logout">Logout</a>
+    <div id="picButton">
+        <img id="catBtn" src="/catProfile.png" alt="" width="50px">
+        <button id="newPost" onclick="openModal()">Add New Post &DownArrow;</button>
+    </div>
+
+</div>
+
+
+    <!-- The Modal -->
+    <div id="postModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Add a New Post</h2>
+            <form id="postForm" action="/add" method="post">
+                <input id="text" type="text" placeholder="Title" name="title" required>
+                <textarea id="textarea" placeholder="Write your post..." name="content" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    <section>
+        <div id="titleP">
+            <h3 style="color: rgb(0, 0, 0); font-weight: 400; font-size: 1.3rem;">Here are your posts:</h3>
+        </div>
+        <% if(locals.text){%>
+            <p><%= text %></p>
+        <% }else{%>
+            <% posts.forEach(post => {%>
+             <div class="post posts" >
+                <h2><%= post.title %></h2>
+           
+                <p style="text-align: justify;">
+                 <%= post.content %>
+                </p>
+                <p style="color:#9ca3af;margin: 0;">
+                    <span><%=post.created_at%></span>
+                </p>
+                <div class="btns">
+                    <button class="edit" onclick="window.location.href='/edit-post/<%= post.id_post%>'">edit</button>
+                    <button class="delete" onclick="window.location.href='/delete-post/<%= post.id_post%>'">delete</button>
+                </div>
+            </div>
+            <% }) %>
+        <% } %>
+            
+              
+        
+    </section>
+    
+<%- include("partials/footer") %>

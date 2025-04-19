@@ -1,0 +1,27 @@
+<%- include('partials/header') %>
+    
+    <main>
+        <div id="flyCat">
+            <img src="/picCat.png" alt="" width="150px" >
+        </div>
+        <% if(locals.posts){%>
+            <%posts.forEach(post =>{%>
+                <div class="post"data-aos="fade-up">
+                     <h2><%= post.title %></h2>
+                      <p style="color:#9ca3af;margin: 0;">
+                            <span>Posted by: <%=post.username%></span>
+                     </p>
+                    <p style="text-align: justify;">
+                        <%= post.content %>
+                    </p>
+                    <p style="color:#9ca3af;margin: 0;">
+                        <span><%= post.created_at %></span>
+                    </p>
+              
+                </div>
+            <% }); %>
+        <% } %>
+        
+        
+    </main>
+<%- include('partials/footer') %>

@@ -1,0 +1,33 @@
+.modal-edit{
+   
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    
+}
+.modal-content-edit {
+    font-family: poppins;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    overflow-y: hidden;
+    
+}
+#postForm #textareaE {
+    margin: 10px 0;
+    padding: 10px;
+    max-width: 95%;
+    min-width: 95%;
+    min-height: 400px; /* Set an initial height */
+    overflow-y: hidden; /* Hide scrollbars */
+}
+@media (max-width:300px) {
+    input,textarea{
+        font-size: 0.7rem;
+    }
+}
