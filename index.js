@@ -8,28 +8,45 @@ import GoogleStrategy from "passport-google-oauth2";
 import session from "express-session";
 import env from "dotenv";
 
-const app=express();
-const port=3000;
-const saltRound=10;
+
+const app = express();
+const port = 3000;
+const saltRound = 10;
+
 
 env.config();
+
+app.set("trust proxy", 1);
+
+
 app.use(session({
-    secret:process.env.SESSION_SECRET,
-    resave:false,
-    saveUninitialized:true
-}))
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    secure: true,       // Requires HTTPS in production
+    sameSite: "none"    // Needed if frontend/backend are on different domains
+  }
+}));
+
+
+// Body parser for URL-encoded data
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// Serve static files from "public" folder
 app.use(express.static("public"));
 
+// Initialize Passport.js
 app.use(passport.initialize());
-app.use(passport.session())
+app.use(passport.session());
 
-const db= new pg.Client({
-    user: process.env.PG_USER,
-    host: process.env.PG_HOST,
-    database: process.env.PG_DATABASE,
-    password: process.env.PG_PASSWORD,
-    port: process.env.PG_PORT,
+// Database connection
+const db = new pg.Client({
+  user: process.env.PG_USER,
+  host: process.env.PG_HOST,
+  database: process.env.PG_DATABASE,
+  password: process.env.PG_PASSWORD,
+  port: process.env.PG_PORT,
 });
 db.connect();
 app.get("/home",async(req,res)=>{
@@ -269,7 +286,7 @@ passport.use(
       {
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        callbackURL: "http://localhost:3000/auth/google/home",
+        callbackURL: "https://blogapp-h1ps.onrender.com/auth/google/home",
         userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo",
       },
       async (accessToken, refreshToken, profile, cb) => {
