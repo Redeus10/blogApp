@@ -24,23 +24,21 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   cookie: {
-    secure: true,       // Requires HTTPS in production
-    sameSite: "none"    // Needed if frontend/backend are on different domains
+    secure: true,    
+    sameSite: "none"  
   }
 }));
 
 
-// Body parser for URL-encoded data
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Serve static files from "public" folder
 app.use(express.static("public"));
 
 // Initialize Passport.js
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Database connection
+
 const db = new pg.Client({
   user: process.env.PG_USER,
   host: process.env.PG_HOST,
@@ -122,7 +120,7 @@ app.get(
     })
 );
 app.get(
-    "/auth/google/home",
+    "/auth/google/callback",
     passport.authenticate("google", {
       successRedirect: "/home",
       failureRedirect: "/login",
@@ -286,7 +284,7 @@ passport.use(
       {
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        callbackURL: "https://blogapp-h1ps.onrender.com/auth/google/home",
+        callbackURL: "https://blogapp-h1ps.onrender.com/auth/google/callback",
         userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo",
       },
       async (accessToken, refreshToken, profile, cb) => {
